@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1>Blog Page</h1>
+<a href="/add">Add Blog</a>
+{% for blog in all_blogs %}
+
+<h2>{{ blog.title }}</h2>
+<p>{{ blog.body}}</p>
+<a href="{% url 'blog' blog.id %}">Read More</a>
+<a href="{% url 'edit' blog.id %}">Edit</a>
+<a href="{% url 'remove' blog.id %}">Delete</a>
+
+{% endfor %}
+
+{% endblock %}
